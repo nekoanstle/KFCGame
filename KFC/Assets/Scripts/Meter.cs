@@ -1,15 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Meter : MonoBehaviour
 {
     public List<GameObject> m_Images = null;
+    public List<Color> m_colors = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_Images[m_Images.Count - 1].SetActive(true);
+        //m_Images[m_Images.Count - 1].SetActive(true);
+        for (int i = 0; i < m_Images.Count; i++)
+        {
+            m_Images[i].GetComponent<Image>().color = m_colors[i];
+        }
+        
     }
 
     // Update is called once per frame
