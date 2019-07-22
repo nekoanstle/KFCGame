@@ -35,14 +35,17 @@ public class CharacterController : MonoBehaviour
         if (attackPower == ePowers.LINE)
         {
             m_lineCollider.SetActive(true);
+            m_lineCollider.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
         if (attackPower == ePowers.CONE)
         {
             m_coneCollider.SetActive(true);
+            m_coneCollider.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
         if (attackPower == ePowers.POPCORN)
         {
             m_popCollider.SetActive(true);
+            m_popCollider.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
     }
 
@@ -85,6 +88,9 @@ public class CharacterController : MonoBehaviour
         m_lineCollider.SetActive(false);
         m_coneCollider.SetActive(false);
         m_popCollider.SetActive(false);
+        m_lineCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
+        m_coneCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
+        m_popCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
 
         //m_lineCollider.transform.rotation.SetFromToRotation(m_lineCollider.transform.rotation, 0)
     }
