@@ -44,4 +44,18 @@ public class Enemy : MonoBehaviour
             transform.position += idle.normalized * m_speed * Time.deltaTime;
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            if(!m_player.gameObject.GetComponent<CharacterController>().m_powerMeter.DecreaseMeter())
+            {
+                m_player.gameObject.GetComponent<CharacterController>().Die();
+            }
+        }
+        if(collision.gameObject.tag == "Attack")
+        {
+            Destroy(gameObject, 1.25f);
+        }
+    }
 }

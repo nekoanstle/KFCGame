@@ -5,16 +5,20 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     [SerializeField] float m_speed = 5.0f;
+    [SerializeField] float m_attackTime = 1.0f;
     [SerializeField] GameObject m_lineCollider = null;
     [SerializeField] GameObject m_coneCollider = null;
     [SerializeField] GameObject m_popCollider = null;
+    [SerializeField] public Meter m_powerMeter = null;
+    [SerializeField] Animator m_animuz = null;
 
     public bool isSheildActive = false;
     public ePowers attackPower = ePowers.LINE;
+    private float attackLeft;
 
     void Start()
     {
-
+        attackLeft = m_attackTime;
     }
 
     void Update()
@@ -22,10 +26,24 @@ public class CharacterController : MonoBehaviour
         Vector3 direction = new Vector3();
         direction.z = 0;
 
-        if (Input.GetKey(KeyCode.W)) { direction.y = 1.0f; }
-        if (Input.GetKey(KeyCode.A)) { direction.x = -1.0f; }
-        if (Input.GetKey(KeyCode.S)) { direction.y = -1.0f; }
-        if (Input.GetKey(KeyCode.D)) { direction.x = 1.0f; }
+        if (Input.GetKey(KeyCode.W))
+        {
+            direction.y = 1.0f;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            direction.x = -1.0f;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            direction.y = -1.0f;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            direction.x = 1.0f;
+        }
+
+        if (Input.GetMouseButtonDown(0)) { OnCLick(); }
 
         transform.position += direction.normalized * m_speed * Time.deltaTime;
     }
@@ -49,8 +67,9 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
+    private void OnCLick()
     {
+        Debug.Log("Click");
         Vector3 mouse = Input.mousePosition;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Vector3 dif = transform.position - ray.GetPoint(0.0f);
@@ -77,10 +96,18 @@ public class CharacterController : MonoBehaviour
             }
             else
             {
+
                 Attack(90);
                 Debug.Log("Up");
             }
         }
+    }
+    public void Die()
+    {
+
+    public void Die()
+    {
+        WinCondition.gameover = true;
     }
 
     public void EndAttack()
