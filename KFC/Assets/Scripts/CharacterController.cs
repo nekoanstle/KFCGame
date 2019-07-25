@@ -9,6 +9,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] GameObject m_lineCollider = null;
     [SerializeField] GameObject m_coneCollider = null;
     [SerializeField] GameObject m_popCollider = null;
+    [SerializeField] Meter m_powerMeter = null;
 
     public bool isSheildActive = false;
     public ePowers attackPower = ePowers.LINE;
@@ -28,6 +29,8 @@ public class CharacterController : MonoBehaviour
         if (Input.GetKey(KeyCode.A)) { direction.x = -1.0f; }
         if (Input.GetKey(KeyCode.S)) { direction.y = -1.0f; }
         if (Input.GetKey(KeyCode.D)) { direction.x = 1.0f; }
+
+        if (Input.GetMouseButtonDown(0)) { OnCLick(); }
 
         transform.position += direction.normalized * m_speed * Time.deltaTime;
     }
@@ -51,7 +54,7 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
+    private void OnCLick()
     {
         Debug.Log("Click");
         Vector3 mouse = Input.mousePosition;

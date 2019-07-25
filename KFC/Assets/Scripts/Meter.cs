@@ -42,7 +42,7 @@ public class Meter : MonoBehaviour
         m_Images[0].SetActive(true);
     }
 
-    void DecreaseMeter()
+    public bool DecreaseMeter()
     {
         for (int i = 0; i < m_Images.Count; i++)
         {
@@ -50,9 +50,10 @@ public class Meter : MonoBehaviour
             {
                 m_Images[i].SetActive(false);
                 m_Images[i + 1].SetActive(true);
-                break;
+                return true;
             }
         }
+        return false;
     }
 
 }

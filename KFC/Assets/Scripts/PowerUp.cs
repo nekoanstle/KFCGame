@@ -9,6 +9,7 @@ public class PowerUp : MonoBehaviour
     {
         m_power = ePowers.POWERS[(int)(Random.value * 5)];
     }
+
 }
 
 public class ePowers
