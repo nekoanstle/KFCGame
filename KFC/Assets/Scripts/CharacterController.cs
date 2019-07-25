@@ -102,8 +102,6 @@ public class CharacterController : MonoBehaviour
             }
         }
     }
-    public void Die()
-    {
 
     public void Die()
     {
