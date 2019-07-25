@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
         }
         if(collision.gameObject.tag == "Attack")
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 1.25f);
         }
     }
 }

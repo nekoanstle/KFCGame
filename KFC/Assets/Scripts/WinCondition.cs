@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WinCondition : MonoBehaviour
 {
-    public static bool gameover = false; 
+    public static bool gameover = false;
+    public static bool win = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
