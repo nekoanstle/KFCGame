@@ -9,7 +9,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] GameObject m_lineCollider = null;
     [SerializeField] GameObject m_coneCollider = null;
     [SerializeField] GameObject m_popCollider = null;
-    [SerializeField] Meter m_powerMeter = null;
+    [SerializeField] public Meter m_powerMeter = null;
 
     public bool isSheildActive = false;
     public ePowers attackPower = ePowers.LINE;
@@ -88,7 +88,10 @@ public class CharacterController : MonoBehaviour
             }
         }
     }
+    public void Die()
+    {
 
+    }
     public void EndAttack()
     {
         m_lineCollider.SetActive(false);
