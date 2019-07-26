@@ -11,7 +11,7 @@ public class FireballScript : MonoBehaviour
     public float velX = 5f;
     public float velY = 0f;
 
-
+    public AudioSource m_enemydeath = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +23,7 @@ public class FireballScript : MonoBehaviour
     {
         if(PlayerController.right)
         {
+
         projectile_rb.velocity = new Vector2(velX, velY);
             Destroy(gameObject, 2.0f);
         }
@@ -48,6 +49,8 @@ public class FireballScript : MonoBehaviour
         GameObject enemy = collision.gameObject;
         if(enemy.tag == "Enemy")
         {
+            m_enemydeath.Play();
+           
             Destroy(enemy);
             PlayerController.amtOfEnemy--;
         }

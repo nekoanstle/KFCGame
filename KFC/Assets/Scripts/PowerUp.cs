@@ -13,6 +13,8 @@ public class PowerUp : MonoBehaviour
     Vector3 idle;
 
     [SerializeField] public Animator m_anmi = null;
+    public AudioSource m_pickUp = null;
+
     void Start()
     {
         sleep = m_sleepTime;
@@ -35,8 +37,9 @@ public class PowerUp : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            m_pickUp.Play();
             collision.gameObject.GetComponent<PlayerController>().m_powerMeter.Refill();
-            Destroy(gameObject);
+            Destroy(gameObject,.25f);
         }
     }
 }
