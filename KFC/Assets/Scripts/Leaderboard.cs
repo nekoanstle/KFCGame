@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+ 
 
 public class Leaderboard : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Leaderboard : MonoBehaviour
     private void Start()
     {
         float[] leaderboard = PlayerPrefsX.GetFloatArray("Leaderboard");
+        Array.Sort(leaderboard);
         foreach (float f in leaderboard)
         {
             m_leaderboard.text += f.ToString("00.00\n");
