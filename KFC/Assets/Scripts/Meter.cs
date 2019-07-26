@@ -8,8 +8,6 @@ public class Meter : MonoBehaviour
     public List<GameObject> m_Images = null;
     public List<Color> m_colors = null;
 
-    public AudioSource m_refillSound = null;
-    public Animator m_fireAnmi = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,20 +35,13 @@ public class Meter : MonoBehaviour
 
     public void Refill()
     {
-        m_refillSound.Play();
         foreach (GameObject go in m_Images)
         {
             go.SetActive(false);
         }
         m_Images[0].SetActive(true);
-        StartCoroutine(playFire());
     }
-    private IEnumerator playFire()
-    {
-        m_fireAnmi.SetBool("StartFire", true);
-        yield return new WaitForSeconds(3f);
-        m_fireAnmi.SetBool("StartFire", false);
-    }
+
     public bool DecreaseMeter()
     {
         for (int i = 0; i < m_Images.Count; i++)

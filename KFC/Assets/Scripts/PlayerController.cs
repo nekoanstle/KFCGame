@@ -34,8 +34,6 @@ public class PlayerController : MonoBehaviour
     public static  bool down = false;
 
     public static int amtOfEnemy = 10;
-
-    public AudioSource m_attack = null;
     void Start()
     {
         attackLeft = m_attackTime;
@@ -169,7 +167,6 @@ public class PlayerController : MonoBehaviour
     }
     public void Attack(float angle)
     {
-        m_attack.Play();
         attack = true;
 
         bulletPos = transform.position;
