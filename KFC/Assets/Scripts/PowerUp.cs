@@ -14,7 +14,7 @@ public class PowerUp : MonoBehaviour
     {
         sleep = m_sleepTime;
         idle = new Vector3(Random.value - 0.5f, Random.value - 0.5f, 0);
-        m_power = ePowers.POWERS[(int)(Random.value * 5)];
+        m_power = ePowers.POWERS[(int)(Random.value * 4)];
     }
 
     private void Update()

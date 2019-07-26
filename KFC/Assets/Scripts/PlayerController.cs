@@ -17,6 +17,18 @@ public class PlayerController : MonoBehaviour
     private float attackLeft;
     bool attack = false;
 
+   public GameObject bulletPlace = null;
+    public GameObject bulletLeft = null;
+
+    Vector2 bulletPos;
+    public float fireRate = 0.5f;
+    float nextFire = 0.0f;
+
+    //facing
+    public static bool left = false;
+    public static bool right = false;
+    public static bool up = false;
+    public static  bool down = false; 
     void Start()
     {
         attackLeft = m_attackTime;
@@ -38,6 +50,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
+            SetBoolFace("up");
+        
             direction.y = 1.0f;
             if(m_animuz.GetBool("WalkUp") == false)
             {
@@ -46,6 +60,8 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
+            SetBoolFace("left");
+
             direction.x = -1.0f;
             if (m_animuz.GetBool("WalkLeft") == false)
             {
@@ -54,6 +70,8 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.S))
         {
+            SetBoolFace("down");
+
             direction.y = -1.0f;
             if (m_animuz.GetBool("WalkDown") == false)
             {
@@ -62,6 +80,8 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D))
         {
+            SetBoolFace("right");
+
             direction.x = 1.0f;
             if (m_animuz.GetBool("WalkRight") == false)
             {
@@ -69,7 +89,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0) && !attack) { OnCLick(); }
+        if (Input.GetMouseButtonDown(0) && !attack && Time.time > nextFire) { OnCLick(); }
 
         transform.position += direction.normalized * m_speed * Time.deltaTime;
     }
@@ -105,12 +125,63 @@ public class PlayerController : MonoBehaviour
                 
         }
     }
+    private void SetBoolFace(string id)
+    {
+        switch(id)
+        {
+            case "right":
+                right = true;
+
+                left = false;
+                up = false;
+                down = false;
+                break;
+            case "left":
+                left = true;
+
+                right = false;
+                up = false;
+                down = false;
+                break;
+            case "down":
+                down= true;
+
+                left = false;
+                up = false;
+                right = false;
+                break;
+            case "up":
+                up = true;
+
+                left = false;
+                right = false;
+                down = false;
+                break;
+        }
+    }
     public void Attack(float angle)
     {
         attack = true;
+
+        bulletPos = transform.position;
+
+        //If facing right do this
+        if (right)
+        {
+            GameObject go = Instantiate(bulletPlace, bulletPos, Quaternion.identity);
+            go.transform.position -= Vector3.right;
+        }
+        else if (left)
+        {
+            //If facing left do this
+            GameObject go = Instantiate(bulletLeft, bulletPos, Quaternion.identity);
+            go.transform.position -= Vector3.left;
+        }
+
         //check power meter
         if (attackPower == ePowers.LINE)
         {
+
             m_lineCollider.SetActive(true);
             m_lineCollider.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
@@ -128,6 +199,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnCLick()
     {
+        nextFire = Time.time + fireRate;
+
         Debug.Log("Click");
         Vector3 mouse = Input.mousePosition;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -170,6 +243,10 @@ public class PlayerController : MonoBehaviour
     public void EndAttack()
     {
         attack = false;
+
+
+
+
         m_lineCollider.SetActive(false);
         m_coneCollider.SetActive(false);
         m_popCollider.SetActive(false);
