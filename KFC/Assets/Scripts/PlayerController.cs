@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
    public GameObject bulletPlace = null;
     public GameObject bulletLeft = null;
+    public GameObject bulletUp = null;
+    public GameObject bulletDown = null;
 
     Vector2 bulletPos;
     public float fireRate = 0.5f;
@@ -176,6 +178,16 @@ public class PlayerController : MonoBehaviour
             //If facing left do this
             GameObject go = Instantiate(bulletLeft, bulletPos, Quaternion.identity);
             go.transform.position -= Vector3.left;
+        }
+        else if(up)
+        {
+            GameObject go = Instantiate(bulletUp, bulletPos, Quaternion.identity);
+            go.transform.position -= Vector3.up;
+        }
+        else if (down)
+        {
+            GameObject go = Instantiate(bulletDown, bulletPos, Quaternion.identity);
+            go.transform.position -= Vector3.down;
         }
 
         //check power meter

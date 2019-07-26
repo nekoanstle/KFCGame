@@ -31,5 +31,15 @@ public class FireballScript : MonoBehaviour
             projectile_rb.velocity = new Vector2(-velX, velY);
             Destroy(gameObject, 2.0f);
         }
+        else if (PlayerController.up)
+        {
+            projectile_rb.velocity = new Vector2(0, velX);
+            Destroy(gameObject, 2.0f);
+        }
+        else if (PlayerController.down)
+        {
+            projectile_rb.velocity = new Vector2(0, -velX);
+            Destroy(gameObject, 2.0f);
+        }
     }
 }

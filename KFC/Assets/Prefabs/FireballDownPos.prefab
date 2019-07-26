@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8942670921698845432}
   m_Layer: 0
-  m_Name: FireballLeftPos
+  m_Name: FireballDownPos
   m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,22 +61,22 @@ PrefabInstance:
     - target: {fileID: 769007791869335703, guid: 3fc16ba2640b3904885200239d9f18df,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 769007791869335703, guid: 3fc16ba2640b3904885200239d9f18df,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 769007791869335703, guid: 3fc16ba2640b3904885200239d9f18df,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1
+      value: -0.7910041
       objectReference: {fileID: 0}
     - target: {fileID: 769007791869335703, guid: 3fc16ba2640b3904885200239d9f18df,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.6118109
       objectReference: {fileID: 0}
     - target: {fileID: 769007791869335703, guid: 3fc16ba2640b3904885200239d9f18df,
         type: 3}
@@ -96,7 +96,7 @@ PrefabInstance:
     - target: {fileID: 769007791869335703, guid: 3fc16ba2640b3904885200239d9f18df,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 180
+      value: -104.559006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fc16ba2640b3904885200239d9f18df, type: 3}
