@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PowerUps
   - Fireball
+  - Enemy
   layers:
   - Default
   - TransparentFX

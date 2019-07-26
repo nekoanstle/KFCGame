@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sleepTime: 2
-  m_speed: 2
+  m_speed: 3
+  m_anmi: {fileID: 3976882381618155728}
 --- !u!58 &5892554451645246365
 CircleCollider2D:
   m_ObjectHideFlags: 0

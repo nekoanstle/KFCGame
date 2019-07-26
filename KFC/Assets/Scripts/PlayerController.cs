@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -253,6 +254,7 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         WinCondition.gameover = true;
+        SceneManager.LoadScene("GameOver");
     }
 
     public void EndAttack()
