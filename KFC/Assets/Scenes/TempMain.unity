@@ -16334,10 +16334,13 @@ RectTransform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 1439967803}
 =======
   - {fileID: 1691366413}
 >>>>>>> f6d3a432bb7bdd0d205d47220d0cb3f481e6b6e4
+=======
+>>>>>>> parent of f6d3a43... 7/26/19
 =======
 >>>>>>> parent of f6d3a43... 7/26/19
 =======
@@ -49328,6 +49331,7 @@ SpriteRenderer:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1439967802
 =======
 --- !u!1 &1399371136
@@ -49471,6 +49475,8 @@ CanvasRenderer:
   m_GameObject: {fileID: 1399371136}
 >>>>>>> f6d3a432bb7bdd0d205d47220d0cb3f481e6b6e4
   m_CullTransparentMesh: 0
+=======
+>>>>>>> parent of f6d3a43... 7/26/19
 =======
 >>>>>>> parent of f6d3a43... 7/26/19
 =======
