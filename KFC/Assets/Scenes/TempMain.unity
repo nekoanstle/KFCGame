@@ -3945,7 +3945,7 @@ GameObject:
   - component: {fileID: 356589182}
   - component: {fileID: 356589183}
   m_Layer: 0
-  m_Name: dragon1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4054,7 +4054,7 @@ MonoBehaviour:
   m_coneCollider: {fileID: 804976497}
   m_popCollider: {fileID: 360374324}
   m_powerMeter: {fileID: 1170340414}
-  m_animuz: {fileID: 0}
+  m_animuz: {fileID: 356589177}
   isSheildActive: 0
 --- !u!50 &356589181
 Rigidbody2D:

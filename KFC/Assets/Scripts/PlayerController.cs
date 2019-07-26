@@ -39,23 +39,71 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             direction.y = 1.0f;
+            if(m_animuz.GetBool("WalkUp") == false)
+            {
+                this.SetAnimation("WalkUp");
+            }
         }
         if (Input.GetKey(KeyCode.A))
         {
             direction.x = -1.0f;
+            if (m_animuz.GetBool("WalkLeft") == false)
+            {
+                this.SetAnimation("WalkLeft");
+            }
         }
         if (Input.GetKey(KeyCode.S))
         {
             direction.y = -1.0f;
+            if (m_animuz.GetBool("WalkDown") == false)
+            {
+                this.SetAnimation("WalkDown");
+            }
         }
         if (Input.GetKey(KeyCode.D))
         {
             direction.x = 1.0f;
+            if (m_animuz.GetBool("WalkRight") == false)
+            {
+                this.SetAnimation("WalkRight");
+            }
         }
 
         if (Input.GetMouseButtonDown(0) && !attack) { OnCLick(); }
 
         transform.position += direction.normalized * m_speed * Time.deltaTime;
+    }
+    //sets all the rest of the animation to false
+    private void SetAnimation(string id)
+    {
+        switch(id)
+        {
+            case "WalkUp":
+                m_animuz.SetBool(id, true);
+                m_animuz.SetBool("WalkDown", false);
+                m_animuz.SetBool("WalkRight", false);
+                m_animuz.SetBool("WalkLeft", false);
+                break;
+            case "WalkDown":
+                m_animuz.SetBool(id, true);
+                m_animuz.SetBool("WalkUp", false);
+                m_animuz.SetBool("WalkRight", false);
+                m_animuz.SetBool("WalkLeft", false);
+                break;
+            case "WalkRight":
+                m_animuz.SetBool(id, true);
+                m_animuz.SetBool("WalkDown", false);
+                m_animuz.SetBool("WalkUp", false);
+                m_animuz.SetBool("WalkLeft", false);
+                break;
+            case "WalkLeft":
+                m_animuz.SetBool(id, true);
+                m_animuz.SetBool("WalkDown", false);
+                m_animuz.SetBool("WalkRight", false);
+                m_animuz.SetBool("WalkUp", false);
+                break;
+                
+        }
     }
     public void Attack(float angle)
     {
