@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -12,6 +11,7 @@ public class Enemy : MonoBehaviour
     private float sleep;
 
     Vector3 idle;
+
 
     void Start()
     {
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
                 m_player.gameObject.GetComponent<PlayerController>().Die();
             }
         }
-        if (collision.gameObject.tag == "Attack")
+        if(collision.gameObject.tag == "Attack")
         {
             Destroy(gameObject, 1.25f);
         }

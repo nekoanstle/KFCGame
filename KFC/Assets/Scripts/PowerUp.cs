@@ -8,8 +8,13 @@ public class PowerUp : MonoBehaviour
     [SerializeField] float m_sleepTime = 2.0f;
     [SerializeField] float m_speed = 2.0f;
 
+
     private float sleep;
     Vector3 idle;
+
+    [SerializeField] public Animator m_anmi = null;
+    public AudioSource m_pickUp = null;
+
     void Start()
     {
         sleep = m_sleepTime;
@@ -25,14 +30,16 @@ public class PowerUp : MonoBehaviour
             idle = new Vector3(Random.value - 0.5f, Random.value - 0.5f, 0);
         }
         transform.position += idle.normalized * m_speed * Time.deltaTime;
+        m_anmi.SetBool("MoveDown", true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
+            m_pickUp.Play();
             collision.gameObject.GetComponent<PlayerController>().m_powerMeter.Refill();
-            Destroy(gameObject);
+            Destroy(gameObject,.25f);
         }
     }
 }
