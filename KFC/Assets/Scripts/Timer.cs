@@ -19,7 +19,7 @@ public class Timer : MonoBehaviour
         if(WinCondition.gameover != true)
         {
             totalTime += Time.deltaTime;
-            text.text = totalTime.ToString("00.00");
+            text.text = totalTime.ToString("00.00"); 
         }
     }
 }
