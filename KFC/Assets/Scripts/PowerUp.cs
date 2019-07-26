@@ -5,9 +5,26 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     public ePowers m_power;
+    [SerializeField] float m_sleepTime = 2.0f;
+    [SerializeField] float m_speed = 2.0f;
+
+    private float sleep;
+    Vector3 idle;
     void Start()
     {
+        sleep = m_sleepTime;
+        idle = new Vector3(Random.value - 0.5f, Random.value - 0.5f, 0);
         m_power = ePowers.POWERS[(int)(Random.value * 5)];
+    }
+
+    private void Update()
+    {
+        if (sleep <= 0)
+        {
+            sleep = m_sleepTime;
+            idle = new Vector3(Random.value - 0.5f, Random.value - 0.5f, 0);
+        }
+        transform.position += idle.normalized * m_speed * Time.deltaTime;
     }
 
 }
