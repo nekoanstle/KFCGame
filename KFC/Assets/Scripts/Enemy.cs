@@ -12,11 +12,7 @@ public class Enemy : MonoBehaviour
     private float sleep;
 
     Vector3 idle;
-<<<<<<< HEAD
-=======
 
-
->>>>>>> f6d3a432bb7bdd0d205d47220d0cb3f481e6b6e4
     void Start()
     {
         sleep = m_sleepTime;
