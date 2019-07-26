@@ -8,7 +8,7 @@ public class SaveScore : MonoBehaviour
 {
     public TextMeshProUGUI m_timeScore = null;
 
-    private void Start()
+    public void Save()
     {
         float[] leaderboard = PlayerPrefsX.GetFloatArray("Leaderboard");
         float[] updatedLeaderboard = new float[leaderboard.Length + 1];
