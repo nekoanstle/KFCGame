@@ -48,9 +48,9 @@ public class Enemy : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            if(!m_player.gameObject.GetComponent<CharacterController>().m_powerMeter.DecreaseMeter())
+            if(!m_player.gameObject.GetComponent<PlayerController>().m_powerMeter.DecreaseMeter())
             {
-                m_player.gameObject.GetComponent<CharacterController>().Die();
+                m_player.gameObject.GetComponent<PlayerController>().Die();
             }
         }
         if(collision.gameObject.tag == "Attack")

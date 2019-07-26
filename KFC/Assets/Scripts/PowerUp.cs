@@ -27,6 +27,13 @@ public class PowerUp : MonoBehaviour
         transform.position += idle.normalized * m_speed * Time.deltaTime;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+
+        }
+    }
 }
 
 public class ePowers
