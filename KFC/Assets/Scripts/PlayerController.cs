@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] float m_speed = 5.0f;
     [SerializeField] float m_attackTime = 1.0f;
@@ -15,6 +15,7 @@ public class CharacterController : MonoBehaviour
     public bool isSheildActive = false;
     public ePowers attackPower = ePowers.LINE;
     private float attackLeft;
+    bool attack = false;
 
     void Start()
     {
@@ -23,6 +24,15 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
+        if (attack)
+        {
+            attackLeft -= Time.deltaTime;
+            if (attackLeft <= 0)
+            {
+                EndAttack();
+                attackLeft = m_attackTime;
+            }
+        }
         Vector3 direction = new Vector3();
         direction.z = 0;
 
@@ -43,12 +53,13 @@ public class CharacterController : MonoBehaviour
             direction.x = 1.0f;
         }
 
-        if (Input.GetMouseButtonDown(0)) { OnCLick(); }
+        if (Input.GetMouseButtonDown(0) && !attack) { OnCLick(); }
 
         transform.position += direction.normalized * m_speed * Time.deltaTime;
     }
     public void Attack(float angle)
     {
+        attack = true;
         //check power meter
         if (attackPower == ePowers.LINE)
         {
@@ -102,8 +113,6 @@ public class CharacterController : MonoBehaviour
             }
         }
     }
-    public void Die()
-    {
 
     public void Die()
     {
@@ -112,6 +121,7 @@ public class CharacterController : MonoBehaviour
 
     public void EndAttack()
     {
+        attack = false;
         m_lineCollider.SetActive(false);
         m_coneCollider.SetActive(false);
         m_popCollider.SetActive(false);
