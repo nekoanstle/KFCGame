@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FireballScript : MonoBehaviour
@@ -7,6 +8,7 @@ public class FireballScript : MonoBehaviour
     //Fireballs
 
     [SerializeField] public GameObject m_projectile = null;
+    [SerializeField] TextMeshProUGUI EnemyCount = null;
     private Rigidbody2D projectile_rb = null;
     public float velX = 5f;
     public float velY = 0f;
@@ -50,6 +52,7 @@ public class FireballScript : MonoBehaviour
         {
             Destroy(enemy);
             PlayerController.amtOfEnemy--;
+            EnemyCount.text = (PlayerController.amtOfEnemy).ToString();
         }
     }
 
