@@ -21,6 +21,15 @@ public class FireballScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PlayerController.right)
+        {
         projectile_rb.velocity = new Vector2(velX, velY);
+            Destroy(gameObject, 2.0f);
+        }
+        else if(PlayerController.left)
+        {
+            projectile_rb.velocity = new Vector2(-velX, velY);
+            Destroy(gameObject, 2.0f);
+        }
     }
 }

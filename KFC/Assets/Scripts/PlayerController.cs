@@ -25,10 +25,10 @@ public class PlayerController : MonoBehaviour
     float nextFire = 0.0f;
 
     //facing
-    private bool left = false;
-    private bool right = false;
-    private bool up = false;
-    private bool down = false; 
+    public static bool left = false;
+    public static bool right = false;
+    public static bool up = false;
+    public static  bool down = false; 
     void Start()
     {
         attackLeft = m_attackTime;
@@ -168,15 +168,14 @@ public class PlayerController : MonoBehaviour
         //If facing right do this
         if (right)
         {
-            bulletPos += new Vector2(1f, 0f);
-            Instantiate(bulletPlace, bulletPos, Quaternion.identity);
+            GameObject go = Instantiate(bulletPlace, bulletPos, Quaternion.identity);
+            go.transform.position -= Vector3.right;
         }
         else if (left)
         {
             //If facing left do this
-            bulletPos += new Vector2(-1f, 0f);
             GameObject go = Instantiate(bulletLeft, bulletPos, Quaternion.identity);
-            go.transform.position -= Vector3.right;
+            go.transform.position -= Vector3.left;
         }
 
         //check power meter
@@ -244,6 +243,10 @@ public class PlayerController : MonoBehaviour
     public void EndAttack()
     {
         attack = false;
+
+
+
+
         m_lineCollider.SetActive(false);
         m_coneCollider.SetActive(false);
         m_popCollider.SetActive(false);
