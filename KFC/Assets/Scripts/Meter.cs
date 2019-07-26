@@ -33,7 +33,7 @@ public class Meter : MonoBehaviour
         }
     }
 
-    void Refill()
+    public void Refill()
     {
         foreach (GameObject go in m_Images)
         {

@@ -31,7 +31,8 @@ public class PowerUp : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            
+            collision.gameObject.GetComponent<PlayerController>().m_powerMeter.Refill();
+            Destroy(gameObject);
         }
     }
 }
