@@ -11,7 +11,7 @@ public class Menu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("TempMain");
+        SceneManager.LoadScene("JustInCase");
     }
 
     public void Leaderboard()
