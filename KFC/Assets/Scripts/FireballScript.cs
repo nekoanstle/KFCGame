@@ -42,4 +42,15 @@ public class FireballScript : MonoBehaviour
             Destroy(gameObject, 2.0f);
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        GameObject enemy = collision.gameObject;
+        if(enemy.tag == "Enemy")
+        {
+            Destroy(enemy);
+            PlayerController.amtOfEnemy--;
+        }
+    }
+
 }

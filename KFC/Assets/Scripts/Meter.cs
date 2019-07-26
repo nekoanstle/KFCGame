@@ -22,15 +22,15 @@ public class Meter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Reload"))
-        {
-            Refill();
-        }
+   //     if (Input.GetButtonDown("Reload"))
+   //     {
+   //         Refill();
+   //     }
 
-        if(Input.GetMouseButtonDown(0))
-        {
-            DecreaseMeter();
-        }
+   ////     if(Input.GetMouseButtonDown(0))
+   //     {
+   // //        DecreaseMeter();
+   //     }
     }
 
     public void Refill()

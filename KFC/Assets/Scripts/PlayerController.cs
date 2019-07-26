@@ -30,10 +30,13 @@ public class PlayerController : MonoBehaviour
     public static bool left = false;
     public static bool right = false;
     public static bool up = false;
-    public static  bool down = false; 
+    public static  bool down = false;
+
+    public static int amtOfEnemy = 10;
     void Start()
     {
         attackLeft = m_attackTime;
+        amtOfEnemy = 10;
     }
 
     void Update()
