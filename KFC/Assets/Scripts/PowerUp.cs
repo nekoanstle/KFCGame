@@ -31,7 +31,7 @@ public class PowerUp : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-
+            
         }
     }
 }
