@@ -8,11 +8,8 @@ public class PowerUp : MonoBehaviour
     [SerializeField] float m_sleepTime = 2.0f;
     [SerializeField] float m_speed = 2.0f;
 
-
     private float sleep;
     Vector3 idle;
-
-    [SerializeField] public Animator m_anmi = null;
     void Start()
     {
         sleep = m_sleepTime;
@@ -28,7 +25,6 @@ public class PowerUp : MonoBehaviour
             idle = new Vector3(Random.value - 0.5f, Random.value - 0.5f, 0);
         }
         transform.position += idle.normalized * m_speed * Time.deltaTime;
-        m_anmi.SetBool("MoveDown", true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
